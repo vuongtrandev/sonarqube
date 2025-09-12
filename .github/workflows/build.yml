@@ -2,6 +2,7 @@ name: Build
 on:
   push:
     branches:
+      - main
       - master
       - development
       - staging
@@ -13,7 +14,7 @@ on:
       - "**.js"
       - "example/**" 
   pull_request:
-    branches: [master, staging, development]
+    branches: [main, master, staging, development]
     types: [opened, synchronize, reopened]
 
 concurrency:
