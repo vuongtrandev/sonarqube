@@ -3,7 +3,17 @@ on:
   push:
     branches:
       - master
+      - development
+      - staging
+      - feat/*
+      - fix/*
+      - refactor/*
+    pathes:
+      - "**.ts"
+      - "**.js"
+
   pull_request:
+    branches: [master, staging, development]
     types: [opened, synchronize, reopened]
 jobs:
   sonarqube:
