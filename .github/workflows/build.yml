@@ -8,13 +8,22 @@ on:
       - feat/*
       - fix/*
       - refactor/*
-    pathes:
+    paths:
       - "**.ts"
       - "**.js"
-
+      - "example/**" 
   pull_request:
     branches: [master, staging, development]
     types: [opened, synchronize, reopened]
+
+concurrency:
+  group: sonar-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  
 jobs:
   sonarqube:
     name: SonarQube
